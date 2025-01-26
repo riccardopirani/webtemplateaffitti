@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Here, you can send the email or store the data into a database
     // Sending email example:
-    $to = "your-email@example.com";  // Replace with your email
+    $to = "sales@marconisoftware.com";  // Replace with your email
     $headers = "From: " . $email . "\r\n";
     $headers .= "Reply-To: " . $email . "\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8\r\n";
@@ -27,7 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send the email
     if (mail($to, $email_subject, $email_message, $headers)) {
-        echo "Message sent successfully!";
+        // Redirect to the homepage after successful submission
+        header("Location: index.html");  // Replace with your homepage URL
+        exit();
     } else {
         echo "Error in sending message.";
     }
